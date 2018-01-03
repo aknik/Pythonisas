@@ -1,6 +1,7 @@
 import numpy as np
 cero = ""
-siglo = "19"
+siglo1 = "19"
+siglo2 = "19"
 
 while (1):
 
