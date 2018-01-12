@@ -8,7 +8,7 @@ con30 = [2,4,6,9,11 ]
 
 while (1):
     
-    dia1 = str(np.random.randint(1,31))     
+    dia1 = str(np.random.randint(1,32))     
     if dia1 == 31 : 
         mes1 = str(np.random.choice(con31))
     else :
@@ -17,7 +17,7 @@ while (1):
     
     
 
-    dia2 = str(np.random.randint(1,31))     
+    dia2 = str(np.random.randint(1,32))     
     if dia2 == 31 : 
         mes2 = str(np.random.choice(con31))
     else :
@@ -26,7 +26,7 @@ while (1):
     
     
     
-        dia3 = str(np.random.randint(1,31))     
+        dia3 = str(np.random.randint(1,32))     
     if dia3 == 31 : 
         mes3 = str(np.random.choice(con31))
     else :
@@ -35,7 +35,7 @@ while (1):
     
     
     
-        dia4 = str(np.random.randint(1,31))     
+        dia4 = str(np.random.randint(1,32))     
     if dia4 == 31 : 
         mes4 = str(np.random.choice(con31))
     else :
