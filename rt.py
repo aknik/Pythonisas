@@ -65,4 +65,13 @@ for status in tweepy.Cursor(api.user_timeline, screen_name='@nombretuitero3').it
                 sleep(randint(0,60))
                 print (status.id,contador)
                 contador += 1
+                
+===================================================================================================================
 
+SHELL=/bin/sh
+PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
+
+
+0,15,30,45  * * * * /usr/bin/python3 /home/pythoner/ivoox.py
+
+0 7 * * * /usr/bin/python3 /home/pythoner/br.py
