@@ -8,39 +8,66 @@ def hashcode(s):  # http://garage.pimentech.net/libcommonPython_src_python_libco
 # La funcion hashcode no llega a necesitarse, solo la añado porque en el original en java, la usa.
 # https://storage.googleapis.com/miradio/public/spain/stations/spain_destacadas.xml
 # https://storage.googleapis.com/miradio/public/spain/stations/spain_locales.xml
+import requests
+import xmltodict
 
-input ="av2j4j9n1bbaqaoh./ciowlvn/-pwlp/uzqu/oyglyj:kc"
-output =""
+def miradio(input):
 
-line = ""
-S1 = ""
-S2 = ""
+    output =""
 
-for i in range(0,len(input)-1,2):
-    if (i == len(input)-1):
-        S1 = S1 + input[:len(input)-1]
-    else:
+    line = ""
+    S1 = ""
+    S2 = ""
 
-        S1 = S1 + input[i+1:i+2]
-        S2 = input[i:i+1] + S2
-
-
-line = S1 + S2
-
-print (line)
-
-b = "9876543210/:.zyxwvutsrqponmlkjihgfedcba"
-a = "0123456789abcdefghijklmnopqrstuvwxyz.:/"
-
-for i in range(0,len(line)):
-
-    for j in range(0,39):
-
-        if line[i] == a[j]:
-            output = output + b[j]
-            break
+    for i in range(0,len(input)-1,2):
+        if (i == len(input)-1):
+            S1 = S1 + input[:len(input)-1]
         else:
-            if j == 38: output = output + line[i]
 
-print (input)
-print (output)
+            S1 = S1 + input[i+1:i+2]
+            S2 = input[i:i+1] + S2
+
+
+    line = S1 + S2
+
+    b = "9876543210/:.zyxwvutsrqponmlkjihgfedcba"
+    a = "0123456789abcdefghijklmnopqrstuvwxyz.:/"
+
+    for i in range(0,len(line)):
+
+        for j in range(0,39):
+
+            if line[i] == a[j]:
+                output = output + b[j]
+                break
+            else:
+                if j == 38: output = output + line[i]
+
+
+    return (output)
+
+URL = "https://storage.googleapis.com/miradio/public/spain/stations/spain_destacadas.xml"
+
+#response = requests.get(URL)
+#with open('spain_destacadas.xml', 'wb') as file:
+#    file.write(response.content)
+
+
+
+with open('./spain_destacadas.xml') as fd:
+    doc = xmltodict.parse(fd.read())
+
+
+
+
+codes = [] # https://stackoverflow.com/questions/40154727/how-to-use-xmltodict-to-get-items-out-of-an-xml-file
+
+for emisora in doc['Contenido']['Emisora']:
+    #codes.append(emisora['Nombre'])
+    print (emisora['Nombre'])
+    #print (emisora['NewUrlStream'])
+    print (miradio(emisora['NewUrlStream']))
+    print ("\n")
+
+
+
