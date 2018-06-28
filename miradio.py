@@ -4,6 +4,10 @@ def hashcode(s):  # http://garage.pimentech.net/libcommonPython_src_python_libco
         h = (31 * h + ord(c)) & 0xFFFFFFFF
     return ((h + 0x80000000) & 0xFFFFFFFF) - 0x80000000
 
+# Sistema de codificacion que usa la app MiRadio para Android, codifica la url del streaming de las emisoras.
+# La funcion hashcode no llega a necesitarse, solo la añado porque en el original en java, la usa.
+# https://storage.googleapis.com/miradio/public/spain/stations/spain_destacadas.xml
+# https://storage.googleapis.com/miradio/public/spain/stations/spain_locales.xml
 
 input ="av2j4j9n1bbaqaoh./ciowlvn/-pwlp/uzqu/oyglyj:kc"
 output =""
