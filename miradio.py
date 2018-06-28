@@ -47,18 +47,16 @@ def miradio(input):
     return (output)
 
 URL = "https://storage.googleapis.com/miradio/public/spain/stations/spain_destacadas.xml"
+headers = {'Content-Type': 'text/xml',
+           'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12F69',
+           'Accept': 'gzip'}
 
-#response = requests.get(URL)
+response = requests.get(URL, headers=headers)
 #with open('spain_destacadas.xml', 'wb') as file:
 #    file.write(response.content)
 
-
-
 with open('./spain_destacadas.xml') as fd:
     doc = xmltodict.parse(fd.read())
-
-
-
 
 codes = [] # https://stackoverflow.com/questions/40154727/how-to-use-xmltodict-to-get-items-out-of-an-xml-file
 
